@@ -84,3 +84,7 @@ a.button:active, button:active, input[type=submit]:active {
 a.button:active:before, button:active:before {
 	border-color: rgba(255, 255, 255, 0.11) rgba(255, 255, 255, 0.23) rgba(255, 255, 255, 0.27);
 }
+a.button#download_csv {
+    width: 100px;
+    margin-left: 5px;
+}

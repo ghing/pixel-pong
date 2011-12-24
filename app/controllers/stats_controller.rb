@@ -9,6 +9,20 @@ class StatsController < ApplicationController
       format.json {
         render :json => Stat.aggregate.all(:conditions => @conditions)
       }
+      format.csv {
+        csv_string = FasterCSV.generate do |csv|
+          # header row
+          csv << ["title", "url", "hits"]
+          # data rows
+          Stat.aggregate.all(:conditions => @conditions).each do |stat|
+            csv << [stat.title, stat.url, stat.hits]
+          end
+        end
+
+        send_data csv_string,
+                  :type => 'text/csv; charset=iso-8859-1; header=present',
+                  :disposition => "attachment; filename=stats.csv"
+      }
     end
   end
 

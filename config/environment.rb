@@ -9,6 +9,7 @@ Rails::Initializer.run do |config|
   config.gem "jammit"
   config.gem "nokogiri"
   config.gem "delayed_job", :version => '~>2.0.5'
+  config.gem "fastercsv"
   config.time_zone = 'Eastern Time (US & Canada)'
 
 end
